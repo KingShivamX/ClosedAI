@@ -7,4 +7,3 @@ import Post from "../models/post.js";
 dotenv.config();
 
 const router = express.router();
-
