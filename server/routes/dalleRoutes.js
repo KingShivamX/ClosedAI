@@ -11,7 +11,7 @@ const openai = new OpenAI({
 })
 
 router.route("/").get((req, res) => {
-    res.send("hello from Dalleee")
+    res.send("hello from Closed AI")
 })
 
 router.route("/").post(async (req, res) => {
