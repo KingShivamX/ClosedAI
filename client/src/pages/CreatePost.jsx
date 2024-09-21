@@ -1,8 +1,8 @@
 import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
-import { preview } from "../assets"
-import { getRandomPrompt } from "../utils"
+import { preview, download } from "../assets"
+import { getRandomPrompt, downloadImage } from "../utils"
 import { FormField, Loader } from "../Components"
 
 const CreatePost = () => {
@@ -81,22 +81,22 @@ const CreatePost = () => {
     return (
         <section className="max-w-7xl mx-auto">
             <div>
-                <h1 className="font-extrabold text-[#222328] text-[32px]">
-                    Create
+                <h1 className="font-extrabold text-[#222328] text-[28px] sm:text-[32px]">
+                    Unleash Your Creativity
                 </h1>
                 <p className="mt-2 text-[#666e75] text-[16px] max-w-[500px]">
-                    Create imaginative and visually stunning images trough
-                    DALL-E AI and share them with the community
+                    Create fun and unique images with Closed AI and share them
+                    with everyone!
                 </p>
             </div>
 
-            <form className="mt-16 max-w-3xl" onSubmit={handleSubmit}>
+            <form className="mt-8 max-w-3xl" onSubmit={handleSubmit}>
                 <div className="flex flex-col gap-5">
                     <FormField
                         lableName="Your name"
                         type="text"
                         name="name"
-                        placeholder="Shivam"
+                        placeholder="Shivam..."
                         value={form.name}
                         handleChange={handleChange}
                     />
@@ -105,7 +105,7 @@ const CreatePost = () => {
                         lableName="Prompt"
                         type="text"
                         name="prompt"
-                        placeholder="A photo of a white fur monster standing in a purple room"
+                        placeholder="A photo of a white fur monster standing in a purple room..."
                         value={form.prompt}
                         handleChange={handleChange}
                         isSurpriseMe
@@ -134,26 +134,37 @@ const CreatePost = () => {
                     </div>
                 </div>
 
-                <div className="mt-5 flex gap-5">
+                <div className="mt-5 flex flex-col sm:flex-row gap-5">
                     <button
                         type="button"
                         onClick={generatingImage}
-                        className="text-white bg-green-700 font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5"
+                        className="text-white bg-green-700 font-semibold rounded-md text-sm w-full sm:w-auto px-5 py-2"
                     >
                         {generatingImg ? "Generating..." : "Generate"}
                     </button>
+                    {form.photo && (
+                        <button
+                            type="button"
+                            onClick={() => downloadImage(form._id, form.photo)}
+                            className="text-black font-semibold bg-[#F9FAFE] rounded-md text-sm w-full sm:w-auto px-3 py-2 border border-[#666e75] box-border"
+                        >
+                            Download Image
+                        </button>
+                    )}
                 </div>
 
                 <div className="mt-10">
                     <p className="mt-2 text-[#666e75] text-[14px] ">
-                        Once you have created the image you want, you can share
-                        it with others in the community
+                        Once you have created the image, you can share it with
+                        others in the wacky community gallery.
                     </p>
                     <button
                         type="submit"
-                        className="mt-3 text-white bg-[#6469ff] font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5"
+                        className="mt-3 font-semibold text-white bg-[#FFAE00] rounded-md text-sm w-full sm:w-auto px-5 py-2"
                     >
-                        {loading ? "Sharing..." : "Share with the community"}
+                        {loading
+                            ? "Sharing..."
+                            : "Share with the wacky community"}
                     </button>
                 </div>
             </form>
