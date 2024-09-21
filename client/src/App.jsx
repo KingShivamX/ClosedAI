@@ -2,7 +2,6 @@ import React from "react"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { Home, CreatePost } from "./pages"
 import { Header, Footer } from "./Components"
-
 const App = () => {
     return (
         <BrowserRouter>
@@ -17,5 +16,4 @@ const App = () => {
         </BrowserRouter>
     )
 }
-
 export default App
