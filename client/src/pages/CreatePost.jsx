@@ -20,7 +20,7 @@ const CreatePost = () => {
             try {
                 setGeneratingImg(true)
                 const response = await fetch(
-                    "http://localhost:3000/api/v1/dalle",
+                    "https://closed-ai-backend.vercel.app/api/v1/dalle",
                     {
                         method: "POST",
                         headers: {
@@ -50,7 +50,7 @@ const CreatePost = () => {
             setLoading(true)
             try {
                 const response = await fetch(
-                    "http://localhost:3000/api/v1/post",
+                    "https://closed-ai-backend.vercel.app/api/v1/post",
                     {
                         method: "POST",
                         headers: {

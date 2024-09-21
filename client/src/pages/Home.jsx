@@ -28,7 +28,7 @@ const Home = () => {
 
             try {
                 const response = await fetch(
-                    "http://localhost:3000/api/v1/post",
+                    "https://closed-ai-backend.vercel.app/api/v1/post",
                     {
                         method: "GET",
                         headers: {

@@ -16,7 +16,7 @@ app.use("/api/v1/post", postRoutes)
 app.use("/api/v1/dalle", dalleRoutes)
 
 app.get("/", async (req, res) => {
-    res.send("hello from Closed AI")
+    res.send("<h1>Hello from Closed AI</h1>")
 })
 
 const startServer = async () => {
