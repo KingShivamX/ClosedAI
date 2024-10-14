@@ -9,7 +9,6 @@ import dalleRoutes from "../routes/dalleRoutes.js"
 dotenv.config()
 
 const app = express()
-// Allow CORS from your frontend
 const corsOptions = {
     origin: "https://closed-ai-gen.vercel.app",
     optionsSuccessStatus: 200,
